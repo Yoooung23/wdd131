@@ -1,0 +1,50 @@
+body{
+    max-width: 800px;
+    margin: 0 auto;
+}
+.content{
+    padding: 20px;
+    border-width: 1em;
+    border-color: #ccc;
+}
+hr{
+    width: 520px;
+}
+header{
+    margin-top: 100px;
+    text-align: center;
+}
+header h1{
+    padding: 0;
+    margin: 0;
+}
+header p{
+    color: #006EB6;
+    margin-bottom: -2px;
+}
+main{
+    padding: 0px 150px 0px 150px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.goal .action{
+    margin: 30px;
+    width: 400px;
+    padding: 30px;
+}
+/* .goal p{
+    margin-left: 30px;
+    padding: 0px 100px 0px 100px ;
+} */
+.action p{
+    margin-left: 15px;
+}
+footer{
+    text-align: center;
+    margin: 0 auto;
+}
+img{
+    width: 100%;
+    max-width: 150px;
+    margin: 0 auto;
+}
