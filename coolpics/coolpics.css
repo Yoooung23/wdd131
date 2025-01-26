@@ -33,8 +33,9 @@ body{
     font-size: 1.2em;
     height: 100%;
 }
-h1 {
+h2 {
     color: var(--text-dark);
+    padding: 40px;
 }
 img{
     max-width: 100%;
@@ -63,9 +64,9 @@ button {
     font-size: 1.7rem;
     padding: 10px;
 }
-main{
+/* main{
     padding: 30px;
-}
+} */
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
