@@ -72,6 +72,7 @@ button {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 0px 200px;
+    margin-bottom: 200px;
 }
 footer{
     background-color: var(--primary-color);
