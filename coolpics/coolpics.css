@@ -72,9 +72,6 @@ main{
     gap: 1rem;
     padding: 0px 200px;
 }
-.gap{
-    height: 100%;
-}
 footer{
     background-color: var(--primary-color);
 }
