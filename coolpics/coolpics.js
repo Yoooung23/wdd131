@@ -1,24 +1,107 @@
-const menuButton = document.querySelector(".menu-button");
+const menuButton = document.querySelector("button.menu");
+const menuItems = document.querySelector(".menu_items");
 function toggleMenu() {
-  const menu = document.querySelector(".menu");
-  menu.classList.toggle("hide");
+  menuItems.classList.toggle("hide");
 }
 
 menuButton.addEventListener("click", toggleMenu);
+console.log("click")
 
 // devider
 
 function handleResize() {
-    const menu = document.querySelector(".menu");
     if (window.innerWidth > 1000) {
-      menu.classList.remove("hide");
+      menuButton.classList.add("hide"); // Hide button on large screens
+      menuItems.classList.remove("hide"); // Show menu items
     } else {
-      menu.classList.add("hide");
+      menuButton.classList.remove("hide"); // Show button on small screens
+      menuItems.classList.add("hide"); // Hide menu items
     }
   }
   
   handleResize();
   window.addEventListener("resize", handleResize);
+
+// mine 
+// const close = document.querySelector()
+// mine
+  
+
+// devider
+
+
+// function viewertemplate(path, text){
+//     let html = `
+//         <img src="{path}" alt="{text}"></img>`;
+//     return html; 
+// }
+// function viewHandler() {
+
+//     let body = document.querySelector("body");
+//     let html = viewerTemplate('review-icon.png', 'Review Image');
+
+//     body.insertAdjacentHTML('afterend',html)
+// }
+// let btn = document.querySelector("button");
+// btn.addEventListener("click", viewHandler);
+
+
+// AI's gift:
+
+function viewerTemplate(imagePath, altText) {
+  return `
+    <div class="viewer">
+      <button class="close-viewer">X</button>
+      <img src="${imagePath}" alt="${altText}">
+    </div>
+  `;
+}
+
+function viewHandler(event) {
+  const clickedImage = event.target;
+
+  // Extract the filename from the image source
+  const filename = clickedImage.src.split('/').pop().split('.')[0]; 
+
+  const fullImagePath = 'images/' + filename + '-full.jpg'; 
+
+  document.body.insertAdjacentHTML('afterbegin', viewerTemplate(fullImagePath, clickedImage.alt));
+
+  const closeButton = document.querySelector('.close-viewer');
+  closeButton.addEventListener('click', closeViewer);
+}
+
+function closeViewer() {
+  const viewer = document.querySelector('.viewer');
+  viewer.remove(".vanish");
+}
+
+const gallery = document.querySelector('.gallery');
+gallery.addEventListener('click', viewHandler);
+
+
+
+
+
+const viewImg = document.querySelector(".viewer");
+function toggleMenu() {
+  viewer.classList.toggle("vanish");
+}
+
+menuButton.addEventListener("click", toggleMenu);
+console.log("click")
+
+
+
+
+
+
+
+
+
+
+
+
 
 // let img = document.querySelector("img");
 // let filename = img.getAttribute('src');
@@ -33,19 +116,3 @@ function handleResize() {
 
 
 /* funtion inside a function*/
-
-// devider
-function viewertemplate(path, text){
-    let html = `
-        <img src="{path}" alt="{text}"></img>`;
-    return html; 
-}
-function viewHandler() {
-
-    let body = document.querySelector("body");
-    let html = viewerTemplate('review-icon.png', 'Reciew Image');
-
-    body.insertAdjacentHTML('afterend',html)
-}
-let btn = document.querySelector("button");
-btn.addEventListener("click", viewHandler);
