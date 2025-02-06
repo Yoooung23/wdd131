@@ -116,3 +116,19 @@ console.log("click")
 
 
 /* funtion inside a function*/
+
+window.addEventListener("click", function (event) {
+let modal = document.querySelector('.viewer');
+// close the modal when user clicks outside of the image
+if (event.target === modal) {
+modal.remove();
+}
+});
+
+// allow the escape key to close the modal as well
+window.addEventListener("keydown", function (event) {
+let modal = document.querySelector('.viewer');
+if (event.key === "Escape") {
+modal.remove();
+}
+});
