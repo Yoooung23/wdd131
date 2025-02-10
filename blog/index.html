@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Blog</title>
+    <meta name="description" content="A website for book reviews based on age appropriateness, genre, and more.">
+    <link rel="stylesheet" href="review.css">
+
+</head>
+<body>
+    <header>
+        <h1 id="page-title">Kids Read for Fun</h1>
+        <nav aria-label="Main Navigation">
+            <ul>
+                <a href="index.html">About</a>
+                <a href="archive.html">Archive</a>
+                <a href="search.html">search</a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="sform">
+            <form action="/search" method="GET">
+
+                <label for="book-length">Sort by Length:</label>
+                <select name="Length" id="book-length">
+                    <option value="">Any</option> 
+                </select>
+
+                <label for="age-range">Age Range:</label>
+                <select name="age" id="age-range">
+                    <option value="">Any</option>
+                    <option value="kids">Kids (6-12)</option>
+                    <option value="teens">Teens (13-17)</option>
+                    <option value="adults">Adults (18+)</option>
+                </select>
+            
+                <label for="genre">Genre:</label>
+                <select name="genre" id="genre">
+                    <option value="">Any</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="sci-fi">Science Fiction</option>
+                    <option value="romance">Romance</option>
+                    <option value="non-fiction">Non-Fiction</option>
+                    <option value="history">History</option>
+                </select>
+
+                <label for="rating">Rating:</label>
+                <select name="rating" id="rating">
+                    <option value="">Any</option>  
+                    <option value="1">1/5</option>
+                    <option value="2">2/5</option>
+                    <option value="3">3/5</option>
+                    <option value="4">4/5</option>
+                    <option value="5">5/5</option>
+                </select>
+            
+                <button type="submit">Filter</button>
+            </form>
+        </div>
+        <section class="cards">
+            <div class="card1">
+                <h2>Fabeleheaven</h2>
+                <img id="fable_cover" src="Images/Fable.jpeg" alt="Fabeleheaven book 1 book cover">
+                <p>None who enter will leave unchanged.</p>
+            </div>
+            <div class="data1">
+                <p>June 14, 2006</p>
+                <p>6-12</p>
+                <p>Fantasy</p>
+                <p>*****</p>
+            </div>
+            <div class="card2">
+                <h2>Percy Jackson</h2>
+                <img id="lightning_cover" src="Images/LightningThief.jpg" alt="THe Lightning Thief book cover">
+                <p>After learning that he is the son of a mortal woman and Poseidon, god of the sea, twelve-year-old Percy is sent to a summer camp for demigods like himself, and joins his new friends on a quest to prevent a war between the gods.</p>
+            </div>
+            <div class="data2">
+                <p>June 28, 2005</p>
+                <p>13-17</p>
+                <p>Fantasy</p>
+                <p>*****</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Copyright 2025</p>
+    </footer>
+    <script src="review.js"></script>
+</body>
+</html>

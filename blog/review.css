@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root{
+--primary-color: #f08842;
+--primary-color-dark: #e57830;
+--primary-color-light: #ff944c;
+--secondary-color: #ffedd0;
+--font-color-dark: #333;
+--font-color-light: #fff;
+
+--primary-font: 'Josefin Sans', sans-serif;
+--secondary-font: 'Familjen Grotesk', sans-serif;
+}
+html{
+    background-color: #333;
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0 auto;
+    max-width: 2000px;
+    margin-top: -25px;
+    background-image: url('Images//books.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+header{
+    background-color: var(--primary-color);
+    margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
+    position: sticky;
+}
+h1{
+    padding: 20px;
+    font-family: var(--primary-font);
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items:end;
+    background-color: var(--primary-color-dark);
+    text-decoration: none;
+    margin: 0 auto;
+    padding-right: 30px;
+}
+nav a{
+    padding: 10px;
+    justify-content: space-evenly;
+    text-decoration: none;
+    color: var(--font-color-dark);
+    font-family: var(--secondary-font);
+}
+main{
+    text-align: center;
+    
+}
+form{
+    background-color: var(--secondary-color);
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    position: sticky;
+    z-index: 3;
+    padding: 20px;
+    border-radius: 10px;
+    float: right;
+    margin: 10px;
+    margin-top: -0.5px;
+    max-width: 150px;
+    font-family: var(--secondary-font);
+}
+form label, select{
+    padding: 5px;
+}
+button{
+    margin: 10px;
+    font-family: var(--primary-font);
+}
+.card1{
+    border-radius: 30px;
+    background-color: var(--secondary-color);
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: 350px;
+    height: 500px;
+}
+.cards img{
+    width: 100%;
+}
+#fable_cover{
+    max-width: 200px;
+
+}
+.card2{
+    border-radius: 30px;
+    background-color: var(--secondary-color);
+    margin: 0 auto;
+    max-width: 100%;
+    min-width: 350px;
+    height: 500px;
+    margin: 10px;
+}
+#lightning_cover{
+    max-width: 200px;
+}
+.card2 p{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.cards h2{
+    padding: 20px;
+    font-family: var(--primary-font);
+    font-size: 1.8em;
+}
+.cards{
+    padding-left: 30%;
+    padding-right: 30%;
+    font-family: var(--secondary-font);
+}
+.data1, .data2{
+    display: flex;
+    padding: 5px;
+    justify-content: space-evenly;
+    color: #fff;
+    
+}
+footer{
+    background-color: var(--primary-color);
+    height: 50px;
+}
+footer p{
+    padding: 10px;
+}
+
+@media screen and (max-width: 700px){
+    .sform {
+        display: none;
+    }
+    .cards{
+        margin-right: 0px;
+        margin-left: 0px;
+        margin: 0 auto;
+    }
+    .card1{
+        margin: 0 auto;
+    }
+    .card2{
+        margin: 0 auto;
+    }
+    body{
+        padding: 0;
+    }
+}
