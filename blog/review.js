@@ -25,3 +25,16 @@ const articles = [
 		stars: '⭐⭐⭐⭐'
 	}
 ]
+
+
+let car= {
+	brand: 'Toyota',
+	color: 'Blue',
+	year: 2020,
+	model: 'Tacoma',
+	start: function(){
+		console.log('The car is starting...');
+	},
+}
+
+car
