@@ -1,10 +1,10 @@
 const articles = [
     {
         id: 1,
-        title: "Septimus Heap Book One: Magyk",
+        title: "Fablehaven",
         date: "July 5, 2022",
         description: "If you enjoy stories about seventh sons of seventh sons and magyk this is the book for you.",
-        imgSrc: "https://upload.wikimedia.org/wikipedia/en/5/5f/Magkycover2.jpg",
+        imgSrc: "https://upload.wikimedia.org/wikipedia/en/9/91/Fablehaven_book_cover.jpg",
         imgAlt: "Book cover for Septimus Heap 1",
         ages: "10-14",
         genre: "Fantasy",
@@ -12,6 +12,17 @@ const articles = [
     },
     {
         id: 2,
+        title: "The Lightning Thief",
+        date: "July 5, 2022",
+        description: "12-year-old Percy Jackson discovers he is the son of Poseidon in the opener to the hilarious, fast-paced adventure fantasy series for young readers; Percy Jackson and the Olympians.",
+        imgSrc: "https://m.media-amazon.com/images/I/91WN6a6F3RL._AC_UF1000,1000_QL80_.jpg",
+        imgAlt: "Book cover for Septimus Heap 1",
+        ages: "10-14",
+        genre: "Fantasy",
+        stars: "⭐⭐⭐⭐"
+    },
+    {
+        id: 3,
         title: "Magnus Chase Book One: Sword of Summer",
         date: "December 12, 2021",
         description: "The anticipated new novel by Rick Riordan. After Greek mythology (Percy Jackson), Greek/Roman (Heroes of Olympus), and Egyptian (Kane Chronicles), Rick decides to try his hand with Norse Mythology, and the end result is good.",
@@ -22,7 +33,18 @@ const articles = [
         stars: "⭐⭐⭐⭐"
     },
     {
-        id: 3,
+        id: 4,
+        title: "Septimus Heap Book One: Magyk",
+        date: "July 5, 2022",
+        description: "If you enjoy stories about seventh sons of seventh sons and magyk this is the book for you.",
+        imgSrc: "https://upload.wikimedia.org/wikipedia/en/5/5f/Magkycover2.jpg",
+        imgAlt: "Book cover for Septimus Heap 1",
+        ages: "10-14",
+        genre: "Fantasy",
+        stars: "⭐⭐⭐⭐"
+    },
+    {
+        id: 5,
         title: "Belgariad Book One: Pawn of Prophecy",
         date: "Feb 12, 2022",
         description: "A fierce dispute among the Gods and the theft of a powerful Orb leaves the World divided into five kingdoms. Young Garion, with his 'Aunt Pol' and an elderly man calling himself Wolf --a father and daughter granted near-immortality by one of the Gods -- set out on a complex mission.",
@@ -31,7 +53,7 @@ const articles = [
         ages: "12-16",
         genre: "Fantasy",
         stars: "⭐⭐⭐⭐⭐"
-    }
+    },
 ];
 
 // Get form elements
