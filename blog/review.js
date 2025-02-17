@@ -5,21 +5,21 @@ const articles = [
         date: "July 5, 2022",
         description: "If you enjoy stories about seventh sons of seventh sons and magyk this is the book for you.",
         imgSrc: "https://upload.wikimedia.org/wikipedia/en/9/91/Fablehaven_book_cover.jpg",
-        imgAlt: "Book cover for Septimus Heap 1",
-        ages: "10-14",
+        imgAlt: "Book cover for Fablehaven Book One",
+        ages: "6-12",
         genre: "Fantasy",
-        stars: "⭐⭐⭐⭐"
+        stars: "⭐⭐⭐⭐⭐"
     },
     {
         id: 2,
         title: "The Lightning Thief",
-        date: "July 5, 2022",
+        date: "June 28, 2005",
         description: "12-year-old Percy Jackson discovers he is the son of Poseidon in the opener to the hilarious, fast-paced adventure fantasy series for young readers; Percy Jackson and the Olympians.",
         imgSrc: "https://m.media-amazon.com/images/I/91WN6a6F3RL._AC_UF1000,1000_QL80_.jpg",
-        imgAlt: "Book cover for Septimus Heap 1",
-        ages: "10-14",
+        imgAlt: "Book cover The Lightning Thief",
+        ages: "12-16",
         genre: "Fantasy",
-        stars: "⭐⭐⭐⭐"
+        stars: "⭐⭐⭐⭐⭐"
     },
     {
         id: 3,
@@ -120,7 +120,7 @@ function filterBooks() {
         // Age filter
         const ageMatch = !ageValue || 
             (ageValue === 'kids' && article.ages === '6-12') ||
-            (ageValue === 'teens' && article.ages === '12-16') ||
+            (ageValue === 'teens' && article.ages === '12-17') ||
             (ageValue === 'adults' && article.ages === '18+');
 
         // Genre filter

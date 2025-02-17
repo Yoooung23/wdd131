@@ -78,7 +78,7 @@ form {
     border-radius: 10px;
     max-width: 150px;
     font-family: var(--secondary-font);
-    transition: top 0.3s smooth;
+    transition: top 0.3s;
 }
 
 form.fixed-top {
