@@ -120,11 +120,16 @@ button{
 footer{
     background-color: var(--primary-color);
     height: 50px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 footer p{
     padding: 10px;
-    justify-content: space-evenly;
+    margin: 0 auto;
+    font-family: var(--primary-font);
+}
+.disclaimer{
+    grid-column: 3/4;
 }
 
 @media screen and (max-width: 700px){
