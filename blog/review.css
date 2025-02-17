@@ -16,7 +16,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    margin: 0 auto;
+    /* margin: 0 auto; */
     max-width: 2000px;
     margin-top: -25px;
     background-image: url('Images//books.jpg');
@@ -104,8 +104,7 @@ button{
     padding-top: 40px;
 }
 .content img{
-    width: 100%;
-    max-width: 200px;
+    width: 200px;
 }
 .content{
     margin: 0 auto;
@@ -134,34 +133,6 @@ button{
     font-family: var(--primary-font);
     font-size: 1.1em;
 }
-/* .content{
-    border-radius: 30px;
-    background-color: var(--secondary-color);
-    margin: 0 auto;
-    max-width: 100%;
-    min-width: 350px;
-    height: 500px;
-}
-.card img{
-    width: 100%;
-}
-.cards h2{
-    padding: 20px;
-    font-family: var(--primary-font);
-    font-size: 1.8em;
-}
-.cards{
-    padding-left: 30%;
-    padding-right: 30%;
-    font-family: var(--secondary-font);
-}
-.data{
-    display: flex;
-    padding: 5px;
-    justify-content: space-evenly;
-    color: #fff;
-     */
-
 footer{
     background-color: var(--primary-color);
     height: 50px;
@@ -177,7 +148,7 @@ footer p{
     grid-column: 3/4;
 }           
 
-/* @media screen and (max-width: 700px){
+@media screen and (max-width: 700px){
     .sform {
         display: none;
     }
@@ -195,4 +166,4 @@ footer p{
     body{
         padding: 0;
     }
-} */
+}
