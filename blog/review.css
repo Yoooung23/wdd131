@@ -5,7 +5,7 @@
 --primary-color-dark: #e57830;
 --primary-color-light: #ff944c;
 --secondary-color: #ffedd0;
---font-color-dark: #333;
+--font-color-dark: #000;
 --font-color-light: #fff;
 
 --primary-font: 'Josefin Sans', sans-serif;
@@ -56,19 +56,28 @@ main{
     text-align: center;
     
 }
-form{
+form {
     background-color: var(--secondary-color);
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    position: sticky;
     z-index: 3;
     padding: 20px;
     border-radius: 10px;
-    float: right;
-    margin: 10px;
-    margin-top: -0.5px;
     max-width: 150px;
     font-family: var(--secondary-font);
+    transition: top 0.3s smooth;
+}
+
+form.fixed-top {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+form.sticky-nav {
+    position: absolute;
+    top: 160px; /* Adjust this value based on your nav height */
+    right: 20px;
 }
 form label, select{
     padding: 5px;
@@ -76,8 +85,10 @@ form label, select{
 button{
     margin: 10px;
     font-family: var(--primary-font);
+    background-color: var(--primary-color);
+    border-color: #fcb073;
 }
-.card1{
+.content{
     border-radius: 30px;
     background-color: var(--secondary-color);
     margin: 0 auto;
@@ -87,40 +98,21 @@ button{
 }
 .cards img{
     width: 100%;
-}
-#fable_cover{
     max-width: 200px;
-
-}
-.card2{
-    border-radius: 30px;
-    background-color: var(--secondary-color);
-    margin: 0 auto;
-    max-width: 100%;
-    min-width: 350px;
-    height: 500px;
-    margin: 10px;
-}
-#lightning_cover{
-    max-width: 200px;
-}
-.card2 p{
-    padding-left: 20px;
-    padding-right: 20px;
 }
 .cards h2{
     padding: 20px;
     font-family: var(--primary-font);
-    font-size: 1.8em;
+    font-size: 18px;
 }
 .cards{
     padding-left: 30%;
     padding-right: 30%;
     font-family: var(--secondary-font);
 }
-.data1, .data2{
+.data{
     display: flex;
-    padding: 5px;
+    padding: 50px;
     justify-content: space-evenly;
     color: #fff;
     
@@ -128,9 +120,11 @@ button{
 footer{
     background-color: var(--primary-color);
     height: 50px;
+    display: flex;
 }
 footer p{
     padding: 10px;
+    justify-content: space-evenly;
 }
 
 @media screen and (max-width: 700px){
