@@ -1,0 +1,25 @@
+form {
+    display: grid;
+    grid-template-columns: 100px 300px 100px;
+}
+#cardFront, #cardBack{
+
+    
+    height: 225px;
+}
+#cardFront{
+    grid-column: 1/3;
+    grid-row: 1/5;
+    background-color: aliceblue;
+    z-index: 2;
+}
+#cardBack{
+    grid-column: 2/4;
+    grid-row: 2/7;
+    background-color: rgb(35, 137, 137);
+}
+button {
+    grid-column: 3/4;
+    grid-row: 7/8;
+    background-color: orange;
+}
