@@ -96,6 +96,9 @@ button{
   .details h2{
     padding-left: 20px;
 }
+.details p{
+    max-width: 600px;
+}
 footer a{
     text-decoration: none;
     font-size: 0.6em;
@@ -162,6 +165,10 @@ footer{
         display: flex;
         flex-direction: column;
     }
+    .details p{
+        max-width: 300px;
+        justify-content: center;
+    }
     footer{
         display: flex;
         align-items: center;
@@ -170,6 +177,6 @@ footer{
     .social{
         display: flex;
         padding: 10px;
-        flex-direction: row;
+        flex-direction: row-reverse;
     }
 }
