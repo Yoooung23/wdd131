@@ -278,30 +278,20 @@ const recipes = [
     recipeYield: "12 servings",
     rating: 4,
   },
-  //   {
-  //     id: 1,
-  //     image:
-  //       "https://iwashyoudry.com/wp-content/uploads/2022/08/Chicken-Alfredo-Low-Res-21.jpg",
-  //     imgAlt: "Cover image of Alfredo Noodles with Chicken",
-  //     name: "Chicken Alfredo",
-  //     rating: "⭐⭐⭐⭐⭐",
-  //     description:
-  //       "Boil some noodles. Use an alfredo seasoning packet to craft a sauce. Cook and chop some chicken. You are ready to go!",
-  //   },
-  //   {
-  //     id: 2,
-  //     imgSrc:
-  //       "https://iwashyoudry.com/wp-content/uploads/2022/08/Chicken-Alfredo-Low-Res-21.jpg",
-  //     imgAlt: "Enchiladas",
-  //     name: "Chicken Alfredo",
-  //     stars: "⭐⭐⭐⭐⭐",
-  //     description:
-  //       "Boil some noodles. Use an alfredo seasoning packet to craft a sauce. Cook and chop some chicken. You are ready to go!",
-  //   },
 ];
 const recipeContainer = document.getElementById("recipe-container");
 
-function recipeTemplate(recipe){
+function tagsTemplate(tags) {
+    return tags.map(tag => `<span class="tag">${tag}</span>`).join(', ');
+}
+
+function ratingTemplate(rating) {
+    return Array.from({ length: 5 }, (_, index) => {
+        return index < rating ? '<span class="icon-star">⭐</span>' : '<span class="icon-star-empty">☆</span>';
+    }).join('');
+}
+
+function recipeTemplate(recipe) {
     return `
     <div class="recipe-info">
         <div class="image-container">
@@ -325,45 +315,15 @@ function displayRecipe(recipe) {
   const recipeDiv = document.createElement("div");
   recipeDiv.classList.add("recipe");
 
-  recipeDiv.innerHTML = `
-            <div class="recipe-info">
-                <div class="image-container">
-                    <img src="${recipe.image}" alt="${recipe.name}">
-                </div>
-                <div class="details">
-                    <h2>${recipe.name}</h2>
-                    <p class="recipe__ratings">
-                        <span
-                            class="rating"
-                            role="img"
-                            aria-label="Rating: ${recipe.rating} out of 5 stars">
-                            ${[1,2,3,4,5].forEach(i =>{
-                                if(rating >= i){
-                                    return '<span aria-hidden="true" class="icon-star">⭐</span>'
-                                }
-
-                            })
-
-                            }
-                            
-                            <span aria-hidden="true" class="icon-star">⭐</span>
-                            <span aria-hidden="true" class="icon-star">⭐</span>
-                            <span aria-hidden="true" class="icon-star">⭐</span>
-                            <span aria-hidden="true" class="icon-star">⭐</span>
-                            <span aria-hidden="true" class="icon-star-empty">☆</span>
-                        </span>
-                    </p>
-                    <p>${recipe.description}</p>
-                </div>
-            </div>
-        `;
-
+  recipeDiv.innerHTML = recipeTemplate(recipe);
   recipeContainer.appendChild(recipeDiv);
 }
 function displayRecipes() {
-  recipes.forEach(displayRecipe);
+  // Display a random recipe instead of all recipes
+  displayRecipe(getRandomListEntry(recipes));
 }
-// displayRecipes();
+// displayRecipes(); // Remove this line
+displayRecipe(getRandomListEntry(recipes));
 
 //Random recipe generator!
 
@@ -377,6 +337,4 @@ function getRandomListEntry(list) {
   return list[randomNum];
 }
 
-// to test
-// console.log(getRandomListEntry(recipe));
 displayRecipe(getRandomListEntry(recipes));
