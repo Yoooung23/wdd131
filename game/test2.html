@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ninja Parkour Runner</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    canvas {
+      background-color: #222;
+      border: 2px solid #333;
+    }
+
+    #menu {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 30px 60px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 24px;
+      display: none;
+    }
+
+    #menu button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #menu button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="gameCanvas" width="800" height="400"></canvas>
+  <div id="menu">
+    <h1 id="menu-title">🥷🏿 Ninja Parkour</h1>
+    <button id="start-button">Start Game</button>
+  </div>
+
+<script>
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
+  const menu = document.getElementById('menu');
+  const menuTitle = document.getElementById('menu-title');
+  const startButton = document.getElementById('start-button');
+
+  // Game variables
+  const gravity = 0.5;
+  const jumpStrength = -12;
+  let gameSpeed = 5;
+  let speedIncreaseTimer = 0;
+  let running = false;
+
+  const player = {
+    x: 50,
+    y: 300,
+    width: 50,
+    height: 50,
+    dy: 0,
+    grounded: false,
+    jumpsLeft: 2
+  };
+
+  let obstacles = [];
+  let spawnTimer = 0;
+  const spawnInterval = 90;
+
+  function resetGame() {
+    player.y = 300;
+    player.dy = 0;
+    player.grounded = false;
+    player.jumpsLeft = 2;
+    obstacles = [];
+    spawnTimer = 0;
+    speedIncreaseTimer = 0;
+    gameSpeed = 5;
+  }
+
+  // Controls
+  document.addEventListener('keydown', (e) => {
+    if (!running) return;
+    if (e.code === 'Space' || e.code === 'ArrowUp') {
+      if (player.jumpsLeft > 0) {
+        player.dy = jumpStrength;
+        player.jumpsLeft--;
+      }
+    }
+  });
+
+  function createObstacle() {
+    const type = Math.random() > 0.5 ? 'spike' : 'moving';
+    
+    if (type === 'spike') {
+      const obstacle = {
+        type: 'spike',
+        x: canvas.width,
+        y: canvas.height - 40,
+        width: 30,
+        height: 20
+      };
+      obstacles.push(obstacle);
+    } else {
+      const obstacle = {
+        type: 'moving',
+        x: canvas.width,
+        y: canvas.height - 100 - Math.random() * 100,
+        width: 20,
+        height: 80,
+        dy: Math.random() > 0.5 ? 2 : -2
+      };
+      obstacles.push(obstacle);
+    }
+  }
+
+  function showMenu(title, buttonText) {
+    menuTitle.innerText = title;
+    startButton.innerText = buttonText;
+    menu.style.display = 'block';
+  }
+
+  function hideMenu() {
+    menu.style.display = 'none';
+  }
+
+  function startGame() {
+    resetGame();
+    running = true;
+    hideMenu();
+    requestAnimationFrame(gameLoop);
+  }
+
+  startButton.addEventListener('click', () => {
+    startGame();
+  });
+
+  function gameOver() {
+    running = false;
+    showMenu('💀 Game Over! 🥷🏿', 'Restart');
+  }
+
+  function gameLoop() {
+    if (!running) return;
+
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw ground
+    ctx.fillStyle = '#00796b';
+    ctx.fillRect(0, canvas.height - 20, canvas.width, 20);
+
+    // Player physics
+    player.dy += gravity;
+    player.y += player.dy;
+
+    // Ground collision
+    if (player.y + player.height >= canvas.height - 20) {
+      player.y = canvas.height - 20 - player.height;
+      player.dy = 0;
+      player.grounded = true;
+      player.jumpsLeft = 2;
+    } else {
+      player.grounded = false;
+    }
+
+    // Speed increase over time
+    speedIncreaseTimer++;
+    if (speedIncreaseTimer > 300) {
+      gameSpeed += 0.5;
+      speedIncreaseTimer = 0;
+    }
+
+    // Spawn obstacles
+    spawnTimer++;
+    if (spawnTimer >= spawnInterval) {
+      spawnTimer = 0;
+      createObstacle();
+    }
+
+    // Move and draw obstacles
+    for (let i = 0; i < obstacles.length; i++) {
+      const obs = obstacles[i];
+      obs.x -= gameSpeed;
+
+      // Move moving obstacles
+      if (obs.type === 'moving') {
+        obs.y += obs.dy;
+        if (obs.y <= 100 || obs.y + obs.height >= canvas.height - 20) {
+          obs.dy *= -1;
+        }
+      }
+
+      // Remove off-screen obstacles
+      if (obs.x + obs.width < 0) {
+        obstacles.splice(i, 1);
+        i--;
+        continue;
+      }
+
+      // Collision detection
+      if (
+        player.x < obs.x + obs.width &&
+        player.x + player.width > obs.x &&
+        player.y < obs.y + obs.height &&
+        player.y + player.height > obs.y
+      ) {
+        gameOver();
+        return;
+      }
+
+      // Draw obstacles
+      if (obs.type === 'spike') {
+        ctx.fillStyle = '#ff5722';
+        ctx.beginPath();
+        ctx.moveTo(obs.x, obs.y + obs.height);
+        ctx.lineTo(obs.x + obs.width / 2, obs.y);
+        ctx.lineTo(obs.x + obs.width, obs.y + obs.height);
+        ctx.closePath();
+        ctx.fill();
+      } else if (obs.type === 'moving') {
+        ctx.fillStyle = '#5d4037';
+        ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+      }
+    }
+
+    // Draw player (emoji!)
+    ctx.font = '40px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('🥷🏿', player.x + player.width / 2, player.y + player.height / 2);
+
+    requestAnimationFrame(gameLoop);
+  }
+
+  // Start screen on load
+  showMenu('🥷🏿 Ninja Parkour', 'Start Game');
+</script>
+
+</body>
+</html>

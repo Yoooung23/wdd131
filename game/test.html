@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Deadlift Catch Game</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    #game-area {
+      margin: 20px auto;
+      width: 400px;
+      height: 600px;
+      background-color: #dff0d8;
+      border: 2px solid #333;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    #player {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      bottom: 10px;
+      left: 175px;
+      font-size: 40px;
+    }
+
+    .falling-object {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 0;
+      font-size: 30px;
+    }
+
+    #score {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏋️‍♂️ Deadlift Catcher 🏋️‍♂️</h1>
+  <div id="score">Weight Lifted: 0 kg</div>
+  
+  <div id="game-area">
+    <div id="player">🏋️‍♂️</div>
+  </div>
+
+  <script>
+    const gameArea = document.getElementById('game-area');
+    const player = document.getElementById('player');
+    const scoreDisplay = document.getElementById('score');
+
+    const gameAreaWidth = 400;
+    let playerX = 175;
+    let score = 0;
+
+    // Move player with arrow keys
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft' && playerX > 0) {
+        playerX -= 20;
+      } else if (e.key === 'ArrowRight' && playerX < gameAreaWidth - 50) {
+        playerX += 20;
+      }
+      player.style.left = playerX + 'px';
+    });
+
+    // Create falling objects
+    function createFallingObject() {
+      const object = document.createElement('div');
+      object.classList.add('falling-object');
+      object.textContent = '🏋️'; // You can change to 🎯 or 🥇 for fun!
+
+      const objectX = Math.floor(Math.random() * (gameAreaWidth - 40));
+      object.style.left = objectX + 'px';
+
+      gameArea.appendChild(object);
+
+      let objectY = 0;
+
+      const fallInterval = setInterval(() => {
+        if (objectY > 560) {
+          clearInterval(fallInterval);
+          gameArea.removeChild(object);
+        } else {
+          objectY += 5;
+          object.style.top = objectY + 'px';
+
+          // Collision detection
+          if (
+            objectY > 510 &&
+            objectX > playerX - 40 &&
+            objectX < playerX + 50
+          ) {
+            clearInterval(fallInterval);
+            gameArea.removeChild(object);
+            score += 10; // Add 10 kg
+            scoreDisplay.textContent = `Weight Lifted: ${score} kg`;
+            // Optional: Make the player bigger as he lifts more!
+            player.style.transform = `scale(${1 + score / 200})`;
+          }
+        }
+      }, 30);
+    }
+
+    // Drop objects every 1.5 seconds
+    setInterval(createFallingObject, 1500);
+  </script>
+
+</body>
+</html>
