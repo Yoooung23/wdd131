@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Downward Dog",
+        "image": "images/downward-dog.png",
+        "time": "5 min",
+        "category": "Stretching",
+        "tag" : 30
+    },
+    {
+        "title": "Warrior II",
+        "image": "images/warrior-ii.png",
+        "time": "5 min",
+        "category": "Strength",
+        "tag" : 60
+    },
+    {
+        "title": "Child’s Pose",
+        "image": "images/childs-pose.png",
+        "time": "5 min",
+        "category": "Relaxation",
+        "tag" : 60
+    }
+]

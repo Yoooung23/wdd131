@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flow Generator</title>
     <link rel="stylesheet" href="flow.css">
-    <script src="flow.js" defer></script>
+    <script src="flow.js" type="module" defer></script>
 </head>
 <body>
     <header>
@@ -19,14 +19,16 @@
                 <div id="card-content">
                     <H2>Title</H2>
                     <img src="images/Re-Story-Logo.png" alt="Yoga Position Icon">
-                    <p>Text</p>
-                    <h4>Tag</h4>
+                    <h4>Text</h4>
+                    <ul>Relaxing</ul>
                 </div>
             
-            <button>Generate</button>
+            <button id="generate-btn">Generate</button>
             <div id="filter-panel">
-                <form action="post">
-                    <label for="tags">Tags:</label>
+                <form id="workout-form">
+                    <h3>Workout Duration:</h3>
+                    <button type="button" id="btn-30">30-Min</button>
+                    <button type="button" id="btn-60">60-Min</button>
                 </form>
             </div>
         </section>
