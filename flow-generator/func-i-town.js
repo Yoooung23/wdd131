@@ -1,12 +1,3 @@
-// define an interface to define th eshap eof the DataTransfer. build the HTML
-{/* <div id="card-content">
-    <H2>Title</H2>
-    <img src="images/Re-Story-Logo.png" alt="Yoga Position Icon">
-    <h4>Text</h4>
-    <ul>Relaxing</ul> */}
-
-    
-    
 async function loadData (filepath) {
     const response = await fetch(filepath);
     const data = await response.json();
