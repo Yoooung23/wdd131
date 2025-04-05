@@ -29,6 +29,10 @@ header{
 }
 #Re-Story_img{
     width: 60px;
+    transition: transform 0.3s ease-in-out;
+}
+#Re-Story_img:hover{
+    transform: scale(1.2);
 }
 main{
     margin: 0 auto;
@@ -66,6 +70,11 @@ button{
     border-radius: 15px;
     padding: 8px;
     margin: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+button:hover{
+    transform: scale(1.15);
+    background-color: #add2ea;
 }
 /* ________test_______ */
 #filter-btn {
@@ -101,6 +110,38 @@ main {
 #filter-panel.active {
     left: 0; /* Slide in */
 }
+/* ________home-page_______ */
+.about{
+    height: 100%px;
+    padding-top: 180px;
+    padding-bottom: 180px;
+}
+.bubble{
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 60px;
+    padding: 10px;
+    width: 400px;
+}
+.caption{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    padding-bottom: 30px;
+}
+.desc{
+    width: 400px;
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+}
+.gen-btn{
+    background-color: #c4d9e6;
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 10px;
+}
+/* ________home-page_______ */
 /* ________test_______ */
 footer{
     background-color: #c4d9e6;
